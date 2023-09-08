@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --color-bg: #0a445c;
+    --color-text-secondary: #edd48b;
+    --color-pull-secondary: #a98765;
+    --color-outline: #c47c14;
+    --color-pull: #b49cc4;
+}
+
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+}
