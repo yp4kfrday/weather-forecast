@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { OptionsOrGroups, GroupBase } from "react-select";
+import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL } from "../../api";
 
@@ -18,7 +17,7 @@ export const Search: React.FC<SearchProps> = ({ searchData, onSearchChange }) =>
 
     const loadOptions = async (inputValue: string) => {
         try {
-            const response = await fetch(`${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, geoApiOptions);
+            const response = await fetch(`${GEO_API_URL}/cities?languageCode=ru&minPopulation=1000000&namePrefix=${inputValue}`, geoApiOptions);
 
             if (!response.ok) {
                 throw new Error(`Request failed with status: ${response.status}`);
