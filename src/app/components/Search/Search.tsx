@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL } from "../../api";
 
@@ -28,7 +28,7 @@ export const Search: React.FC<SearchProps> = ({ searchData, onSearchChange }) =>
             console.log(responseJSON);
 
             return {
-                options: responseJSON.data.map((city: { latitude: string; longitude: string; name: string; countryCode: string; }) => {
+                options: responseJSON.data.map((city: { latitude: number; longitude: number; name: string; countryCode: string; }) => {
                     return {
                         value: `${city.latitude} ${city.longitude}`,
                         label: `${city.name}, ${city.countryCode}`,

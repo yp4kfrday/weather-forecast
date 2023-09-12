@@ -1,0 +1,44 @@
+.icon__small {
+    width: 40px;
+}
+
+.title {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.daily__item-container {
+    position: relative;
+    margin-bottom: 10px;
+    /* Добавьте отступ между контейнерами daily__item */
+}
+
+.daily__item {
+    background-color: #fff;
+    border-radius: 15px;
+    height: 40px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 20px;
+}
+
+
+.day {
+    color: #212121;
+    flex: 1 1;
+    font-weight: 700;
+    margin-left: 16px;
+}
+
+.description {
+    flex: 1 1;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.min__max {
+    color: #757575
+}

@@ -1,37 +1,12 @@
+import { WeatherData } from 'src/app/models';
+import { kelvinToCelsius } from '../../consts/consts';
 import styles from './CurrentWeather.module.css'
-import React from 'react'
-
-interface Weather {
-    description: string;
-    icon: string;
-    id: number;
-}
-
-interface Main {
-    temp: number;
-    feels_like: number;
-    humidity: number;
-    pressure: number;
-}
-
-interface Wind {
-    speed: number;
-}
-
-interface WeatherDataProps {
-    city: string;
-    weather: Weather[];
-    main: Main;
-    wind: Wind;
-}
-
 
 interface CurrentWeatherProps {
-    data: WeatherDataProps;
+    data: WeatherData;
 }
 
 export const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data }) => {
-    const kelvinToCelsius = 273.15
 
     return (
         <div className={styles.weather}>

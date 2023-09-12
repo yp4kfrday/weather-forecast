@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './app.module.css';
-import { CurrentWeather, Search } from './components';
+import { CurrentWeather, Forecast, Search } from './components';
 import { WEATHER_API_KEY, WEATHER_API_URL } from './api';
 
 
@@ -34,6 +34,7 @@ const App = () => {
     <div className={styles.container}>
       <Search onSearchChange={handleOnSearchChange} searchData={null} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
+      {forecast && <Forecast data={forecast} />}
     </div>
   );
 }
