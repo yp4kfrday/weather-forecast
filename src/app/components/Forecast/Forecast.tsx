@@ -1,5 +1,5 @@
 import { WeatherData } from 'src/app/models';
-import { WEEK_DAYS, kelvinToCelsius } from '../../consts'
+import { WEEK_DAYS } from '../../consts'
 import styles from './Forecast.module.css'
 import React from 'react';
 
@@ -29,8 +29,8 @@ export const Forecast: React.FC<ForecastProps> = ({ data }) => {
                     <label className={styles.day}>{forecastDays[index]}</label>
                     <label className={styles.description}>{item.weather[0].description}</label>
                     <label className={styles.min__max}>
-                        {Math.round(item.main.temp_min - kelvinToCelsius)}°C /{' '}
-                        {Math.round(item.main.temp_max - kelvinToCelsius)}°C
+                        {Math.round(item.main.temp_min)}°C /{' '}
+                        {Math.round(item.main.temp_max)}°C
                     </label>
                 </div>
             ))}

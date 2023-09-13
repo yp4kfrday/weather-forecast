@@ -37,6 +37,7 @@ interface Wind {
 }
 
 export interface WeatherData {
+    list: [];
     city: string;
     clouds: Clouds;
     cod: number;

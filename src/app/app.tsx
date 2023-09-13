@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useState } from 'react';
 import styles from './app.module.css';
 import { CurrentWeather, Forecast, Search } from './components';
@@ -10,11 +9,12 @@ const App = () => {
   const [forecast, setForecast] = useState(null);
 
 
-  const handleOnSearchChange = (searchData: { value: { split: (arg0: string) => [string, string]; }; label: string; }) => {
-    const [lat, lon] = searchData.value.split('');
+  const handleOnSearchChange = (searchData) => {
+    console.log(searchData)
+    const [lat, lon] = searchData.value.split(" ");
 
-    const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&lang=ru&appid=${WEATHER_API_KEY}`);
-    const forecastFetch = fetch(`${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&lang=ru&appid=${WEATHER_API_KEY}`)
+    const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&lang=ru&appid=${WEATHER_API_KEY}&units=metric`);
+    const forecastFetch = fetch(`${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&lang=ru&appid=${WEATHER_API_KEY}&units=metric`)
 
     Promise.all([currentWeatherFetch, forecastFetch])
       .then(async (response) => {
@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <div className={styles.container}>
-      <Search onSearchChange={handleOnSearchChange} searchData={null} />
+      <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
       {forecast && <Forecast data={forecast} />}
     </div>

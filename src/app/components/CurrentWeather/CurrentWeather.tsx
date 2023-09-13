@@ -1,5 +1,4 @@
 import { WeatherData } from 'src/app/models';
-import { kelvinToCelsius } from '../../consts/consts';
 import styles from './CurrentWeather.module.css'
 
 interface CurrentWeatherProps {
@@ -18,14 +17,14 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data }) => {
                 <img alt='weather' className={styles.weather__icon} src={`/icons/${data.weather[0].icon}.png`}></img>
             </div>
             <div className={styles.bottom}>
-                <p className={styles.temperature}>{Math.round(data.main.temp - kelvinToCelsius)}°C</p>
+                <p className={styles.temperature}>{Math.round(data.main.temp)}°C</p>
                 <div className={styles.details}>
                     <div className={styles.parameter__row}>
                         <span className={styles.parameter__label}>Детали:</span>
                     </div>
                     <div className={styles.parameter__row}>
                         <span className={styles.parameter__label}>Ощущается как:  </span>
-                        <span className={styles.parameter__value}>{Math.round(data.main.feels_like - kelvinToCelsius)}°C</span>
+                        <span className={styles.parameter__value}>{Math.round(data.main.feels_like)}°C</span>
                     </div>
                     <div className={styles.parameter__row}>
                         <span className={styles.parameter__label}>Ветер:  </span>
